@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseFollow : MonoBehaviour
 {
-    public Item mouseCheck;
+    public static Item mouseCheck;
 
     public Camera main;
 
@@ -14,19 +14,20 @@ public class MouseFollow : MonoBehaviour
     {
         itemInspector = GameObject.FindGameObjectWithTag("ItemInspect");
         Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
     }
 	
 
 	void Update ()
     {
 		itemInspector.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
-        /*if (mouseCheck.mouseOver == false)
+        if (mouseCheck == false)
         {
             itemInspector.SetActive(false);
         }
-        else if (mouseCheck.mouseOver == true)
+        else if (mouseCheck == true)
             {
                 itemInspector.SetActive(true);
-            }*/
+            }
     }
 }

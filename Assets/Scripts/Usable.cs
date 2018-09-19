@@ -19,7 +19,9 @@ public class Usable : Item
     public void Awake()
     {
         uses = maxUses;
+        
     }
+
 
     public void OnMouseUpAsButton()
     {

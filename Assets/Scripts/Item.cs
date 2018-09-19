@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Item : MonoBehaviour
 {
@@ -13,9 +14,14 @@ public class Item : MonoBehaviour
     public bool mouseOver = false;
 
     [Header("Texts")]
-    public Text nameText;
+    public GameObject nameText;
     public Text weightCost;
     public Text descriptionText;
+
+    public void Update()
+    {
+         /*nameText.GetComponent<TextMeshPro>().SetText(DisplayName);*/
+    }
 
     public float GetWeightPrice()
     {
@@ -32,14 +38,14 @@ public class Item : MonoBehaviour
     {
         Debug.Log("Heyyy, that's pretty cool");
         Debug.Log(ToString());
-        mouseOver = true;
+        MouseFollow.mouseCheck = this;
         
         //nameText.text = DisplayName;*/
     }
 
     public virtual void OnMouseExit()
     {
-        mouseOver = false;
+        MouseFollow.mouseCheck = null;
     }
 
 
